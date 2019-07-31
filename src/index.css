@@ -4,10 +4,10 @@ html {
 body {
   margin: 0;
   background: linear-gradient(
-    hsl(37, 70%, 92%),
-    hsl(37, 80%, 69%) 90%,
-    hsl(37, 90%, 46%),
-    hsl(37, 100%, 23%));
+    hsl(37, 70%, 95%),
+    hsl(37, 80%, 89%) 97%,
+    hsl(37, 90%, 66%),
+    hsl(37, 100%, 37%));
   font-family: "Gill Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
