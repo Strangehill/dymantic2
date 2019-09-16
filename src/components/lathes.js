@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 import { default as Dl, ProductDt as Dt, ProductDd as Dd } from './ProductDl';
@@ -19,34 +19,42 @@ const specOptions = {
     { id: "powerTooling", desc: "Power Tooling Turret" }
   ],
   "workpieceDimensions" : [
-    { id: "ML430", desc: "ML-430  430 x  240 "},
-    { id: "ML560S", desc: "ML-560S  320 x 320 "},
-    { id: "ML560M", desc: "ML-560M  320 x 570 "},
-    { id: "ML360", desc: "ML-360  360 x 470 "},
-    { id: "ML360Y", desc: "ML-360Y  130 x 470 "},
-    { id: "ML600S", desc: "ML-600S  420 x 540 "},
-    { id: "ML600M", desc: "ML-600M  420 x 780 "},
-    { id: "ML600L", desc: "ML-600L  420 x 1280 "},
-    { id: "ML600Y", desc: "ML-600Y  285 x 565 "},
-    { id: "ML600MY", desc: "ML-600MY  285 x 805 "},
-    { id: "ML600LY", desc: "ML-600LY  285 x 1305 "},
-    { id: "ML600TY", desc: "ML-600TY  285 x 495 "},
-    { id: "ML600MTY", desc: "ML-600MTY  285 x 735 "},
-    { id: "ML600LTY", desc: "ML-600LTY  285 x 1235 "},
-    { id: "ML850", desc: "ML-850  600 x 1270 "},
-    { id: "BML500", desc: "BML-500  360 x 300 "},
-    { id: "BML560S", desc: "BML-560S  320 x 320 "},
-    { id: "BML560M", desc: "BML-560M  320 x 570 "},
-    { id: "BML600S", desc: "BML-600S  420 x 540 "},
-    { id: "BML600M", desc: "BML-600M  420 x 780 "},
-    { id: "BML600L", desc: "BML-600L  420 x 1280 "},
-    { id: "BML600Y", desc: "BML-600Y  285 x 565 "},
-    { id: "BML600MY", desc: "BML-600MY  285 x 805 "},
-    { id: "BML600LY", desc: "BML-600LY  285 x 1305 "},
-    { id: "BML600TY", desc: "BML-600TY  285 x 495 "},
-    { id: "BML600MTY", desc: "BML-600MTY  285 x 735 "},
-    { id: "BML600LTY", desc: "BML-600LTY  285 x 1235 "},
-    { id: "BML630", desc: "BML-630  410 x 1526 "}
+    { maxDia: "285", models: [
+      { id: "ML360Y", desc: "ML-360Y  130 x 470 "},
+      { id: "ML600Y", desc: "ML-600Y  285 x 565 "},
+      { id: "ML600MY", desc: "ML-600MY  285 x 805 "},
+      { id: "ML600LY", desc: "ML-600LY  285 x 1305 "},
+      { id: "ML600TY", desc: "ML-600TY  285 x 495 "},
+      { id: "ML600MTY", desc: "ML-600MTY  285 x 735 "},
+      { id: "ML600LTY", desc: "ML-600LTY  285 x 1235 "},
+      { id: "BML600Y", desc: "BML-600Y  285 x 565 "},
+      { id: "BML600MY", desc: "BML-600MY  285 x 805 "},
+      { id: "BML600LY", desc: "BML-600LY  285 x 1305 "},
+      { id: "BML600TY", desc: "BML-600TY  285 x 495 "},
+      { id: "BML600MTY", desc: "BML-600MTY  285 x 735 "},
+      { id: "BML600LTY", desc: "BML-600LTY  285 x 1235 "}
+    ]},
+    { maxDia: "360", models: [
+      { id: "ML560S", desc: "ML-560S  320 x 320 "},
+      { id: "ML560M", desc: "ML-560M  320 x 570 "},
+      { id: "ML360", desc: "ML-360  360 x 470 "},
+      { id: "BML500", desc: "BML-500  360 x 300 "},
+      { id: "BML560S", desc: "BML-560S  320 x 320 "},
+      { id: "BML560M", desc: "BML-560M  320 x 570 "}
+    ]},
+    { maxDia: "430", models: [
+      { id: "ML430", desc: "ML-430  430 x  240 "},
+      { id: "ML600S", desc: "ML-600S  420 x 540 "},
+      { id: "ML600M", desc: "ML-600M  420 x 780 "},
+      { id: "ML600L", desc: "ML-600L  420 x 1280 "},
+      { id: "BML600S", desc: "BML-600S  420 x 540 "},
+      { id: "BML600M", desc: "BML-600M  420 x 780 "},
+      { id: "BML600L", desc: "BML-600L  420 x 1280 "},
+      { id: "BML630", desc: "BML-630  410 x 1526 "}
+    ]},
+    { maxDia: "720", models: [
+      { id: "ML850", desc: "ML-850  600 x 1270 "}
+    ]}
   ],
   "tailstock" : [
     { id: "4", desc: "MT #4 Quill"},
@@ -86,22 +94,53 @@ const Options2 = ({children}) => { return(
   </>
 )}
 
-const Options3 = ({children}) => { return(
+const Options3 = ({children}) => {
+  const [cat, setCat] = useState('none')
+
+  function handleCatChange(e) {
+    setCat(e.target.value);
+  }
+
+  // let allModels = specOptions.workpieceDimensions.map( n => n.maxDia )
+  // console.log(specOptions.workpieceDimensions.forEach( n => n.maxDia ))
+
+  return(
   <>
     <label htmlFor=""> {children} </label>
-    <select id="">
-      <option value=""></option>
-      {specOptions.workpieceDimensions.map( (n, index, array) => {
-      if ( index === 0 || n.id.substring(0,1) === array[index-1].id.substring(0,1))
-      { return (
-        <option key={n.id} value={n.id}> {n.desc} </option>);}
-        else { return (
-          <React.Fragment key={n.id}>
+    <div>
+      <select
+        id=""
+        name=""
+        value={cat}
+        onChange={handleCatChange}>
+        <option value="">Max. Diameter</option>
+        { specOptions.workpieceDimensions.map( n => {
+          return (
+            <option key={n.maxDia} value={n.maxDia}>{n.maxDia} mm</option>
+          )
+        })}
+      </select>
+
+      { specOptions.workpieceDimensions.map( n => {
+        return (
+          <select
+            key={n.maxDia}
+            id={"maxDia" + n.maxDia}
+            name=""
+            style={{ display: cat===n.maxDia ? '' : 'none' }}>
             <option value=""></option>
-            <option key={n.id} value={n.id}> {n.desc} </option>
-          </React.Fragment>
-        );}})}
-    </select>
+            { n.models.map( n => {
+              return (
+                <option key={n.id} value={n.id}>{n.id}</option>
+              )
+        })}
+          </select>
+        )
+      })}
+    </div>
+
+    {/* chop this up into four categories */}
+    {/* choose first one of four max. diameters, and then reveal the next list options, repeat for vertical work area */}
   </>
 )}
 
@@ -125,7 +164,7 @@ const lathes = ({ ...props }) => (
    <Dd gridArea="latheOption2"> <Options2>
       Type of Turret </Options2> </Dd>
     <Dd gridArea="latheOption3"> <Options3>
-      Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </Dd>
+      Max. Diameter: then Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </Dd>
     <Dd gridArea="latheOption4"> <Options4>
       Tailstock, Type of Live Center on Tailstock  </Options4> </Dd>
   </LathesGrid>
