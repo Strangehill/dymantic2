@@ -8,6 +8,7 @@ import Lathes_Chuck_icon from '../ui/Lathes_Chuck.svg';
 import Lathes_Max_Machine_Dimension_icon from '../ui/Lathes_Max_Machine_Dimension.svg';
 import Lathes_Tailstock_icon from '../ui/Lathes_Tailstock.svg';
 import Lathes_Turret_icon from '../ui/Lathes_Turret.svg';
+import latheChuckIcon1 from '../images/lathe-chuck-icon1.svg';
 
 const specOptions = {
   "chuck" : [
@@ -78,6 +79,7 @@ const LathesGrid = styled(Dl)`
 
 const Options1 = ({children}) => { return(
   <>
+    <img src={latheChuckIcon1} alt="" />
     <label htmlFor="latheChuck"> {children} </label>
     <select id="latheChuck">
       <option value=""></option>
