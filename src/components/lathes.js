@@ -79,7 +79,7 @@ const LathesGrid = styled(Dl)`
 const Options1 = ({children}) => { return(
   <>
     <label htmlFor="latheChuck"> {children} </label>
-    <select id="latheChuck">
+    <select id="latheChuck" name="latheChuck">
       <option value=""></option>
       {specOptions.chuck.map( n => (
         <option key={n.id} value={n.id}> {n.desc}</option>
@@ -91,7 +91,7 @@ const Options1 = ({children}) => { return(
 const Options2 = ({children}) => { return(
   <>
     <label htmlFor="lathe-turret"> {children} </label>
-    <select id="lathe-turret" name="">
+    <select id="lathe-turret" name="lathe-turret">
       <option value=""></option>
       {specOptions.turretType.map( n => (
         <option key={n.id} value={n.id}> {n.desc} </option>
@@ -132,7 +132,7 @@ const Options3 = ({children}) => {
           <select
             key={n.maxDia}
             id={"maxDia" + n.maxDia}
-            name=""
+            name={"maxDia" + n.maxDia}
             style={{ display: cat===n.maxDia ? '' : 'none' }}>
             <option value=""></option>
             { n.models.map( n => {
@@ -153,7 +153,7 @@ const Options3 = ({children}) => {
 const Options4 = ({children}) => { return(
   <>
     <label htmlFor="tailstock"> {children} </label>
-    <select id="tailstock" name="">
+    <select id="tailstock" name="tailstock">
       <option value=""></option>
       {specOptions.tailstock.map( n => (
         <option key={n.id} value={n.id}> {n.desc} </option>
@@ -163,28 +163,32 @@ const Options4 = ({children}) => { return(
 )}
 
 const lathes = ({ ...props }) => (
-  <LathesGrid>
-    <Dt gridArea="lathe">
-      <span> <img width="96px" height="96px" src={Lathes_icon}/> </span>
-      <span> Lathes </span>
-    </Dt>
-    <Dd gridArea="latheOption1">
-      <span> <img width="64px" height="64px" src={Lathes_Chuck_icon}/> </span>
-      <span> <Options1> Chuck Size and Nose Type </Options1> </span>
-    </Dd>
-    <Dd gridArea="latheOption2">
-      <span> <img width="64px" height="64px" src={Lathes_Turret_icon}/> </span>
-      <span> <Options2> Type of Turret </Options2> </span>
-    </Dd>
-    <Dd gridArea="latheOption3">
-      <span> <img width="64px" height="64px" src={Lathes_Max_Machine_Dimension_icon}/> </span>
-      <span> <Options3> Max. Diameter: then Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </span>
-    </Dd>
-    <Dd gridArea="latheOption4">
-      <span> <img width="64px" height="64px" src={Lathes_Tailstock_icon}/> </span>
-      <span> <Options4> Tailstock, Type of Live Center on Tailstock  </Options4> </span>
-    </Dd>
-  </LathesGrid>
+  <form netlify name="2019-10-08-Lathes" method="post">
+    <input type="hidden" name="form-name" value="2019-10-08-Lathes" />
+    <LathesGrid>
+      <Dt gridArea="lathe">
+        <span> <img width="96px" height="96px" src={Lathes_icon}/> </span>
+        <span> Lathes </span>
+        <button> Send </button>
+      </Dt>
+      <Dd gridArea="latheOption1">
+        <span> <img width="64px" height="64px" src={Lathes_Chuck_icon}/> </span>
+        <span> <Options1> Chuck Size and Nose Type </Options1> </span>
+      </Dd>
+      <Dd gridArea="latheOption2">
+        <span> <img width="64px" height="64px" src={Lathes_Turret_icon}/> </span>
+        <span> <Options2> Type of Turret </Options2> </span>
+      </Dd>
+      <Dd gridArea="latheOption3">
+        <span> <img width="64px" height="64px" src={Lathes_Max_Machine_Dimension_icon}/> </span>
+        <span> <Options3> Max. Diameter: then Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </span>
+      </Dd>
+      <Dd gridArea="latheOption4">
+        <span> <img width="64px" height="64px" src={Lathes_Tailstock_icon}/> </span>
+        <span> <Options4> Tailstock, Type of Live Center on Tailstock  </Options4> </span>
+      </Dd>
+    </LathesGrid>
+  </form>
 );
 
 export default lathes;
