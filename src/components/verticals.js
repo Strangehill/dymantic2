@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 import { default as Dl, ProductDt as Dt, ProductDd as Dd } from './ProductDl';
 
+import Vertical_Machining_Centers_icon from '../ui/Vertical_Machining_Centers.svg';
+import Verticals_Spindle_icon from '../ui/Verticals_Spindle.svg';
+import Verticals_Structure_icon from '../ui/Verticals_Structure.svg';
+import Verticals_Tool_Magazine_icon from '../ui/Verticals_Tool_Magazine.svg';
+import Verticals_Work_Area_icon from '../ui/Verticals_Work_Area.svg';
+
 const specOptions = {
   "spindleSpeed" : [ 8000, 10000, 12000, 15000, 20000, 24000 ],
   "numOfTools" : [ 16, 24, 30, 32 ],
@@ -82,15 +88,36 @@ const Options4 = ({children}) => { return(
 
 const verticals = ({ ...props }) => (
   <VerticalsGrid>
-    <Dt gridArea="vertical"> <div> Verticals </div> </Dt>
-    <Dd gridArea="verticalOption1"> <Options1>
-      Spindle, Spindle Speed </Options1> </Dd>
-    <Dd gridArea="verticalOption2"> <Options2>
-      Tool Magazine, Number Of Tool Magazine </Options2> </Dd>
-    <Dd gridArea="verticalOption3"> <Options3>
-      Structure, X-axis Traveling Range </Options3> </Dd>
-    <Dd gridArea="verticalOption4"> <Options4>
-      Work Area, Model of Vertical Machining Center Working Area(mm) L x W </Options4> </Dd>
+    <Dt gridArea="vertical">
+      <img width="64px" height="64px" src={Vertical_Machining_Centers_icon}/>
+      <div>
+        Verticals
+      </div>
+    </Dt>
+      <Dd gridArea="verticalOption1">
+        <img width="32px" height="32px" src={Verticals_Spindle_icon}/>
+        <Options1>
+          Spindle, Spindle Speed
+        </Options1>
+      </Dd>
+      <Dd gridArea="verticalOption2">
+        <img width="32px" height="32px" src={Verticals_Tool_Magazine_icon}/>
+        <Options2>
+          Tool Magazine, Number Of Tool Magazine
+        </Options2>
+      </Dd>
+      <Dd gridArea="verticalOption3">
+        <img width="32px" height="32px" src={Verticals_Structure_icon}/>
+        <Options3>
+          Structure, X-axis Traveling Range
+        </Options3>
+      </Dd>
+      <Dd gridArea="verticalOption4">
+        <img width="32px" height="32px" src={Verticals_Work_Area_icon}/>
+        <Options4>
+          Work Area, Model of Vertical Machining Center Working Area(mm) L x W
+        </Options4>
+      </Dd>
   </VerticalsGrid>
 );
 

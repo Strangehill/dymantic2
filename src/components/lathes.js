@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 import { default as Dl, ProductDt as Dt, ProductDd as Dd } from './ProductDl';
 
+import Lathes_icon from '../ui/Lathes.svg';
+import Lathes_Chuck_icon from '../ui/Lathes_Chuck.svg';
+import Lathes_Max_Machine_Dimension_icon from '../ui/Lathes_Max_Machine_Dimension.svg';
+import Lathes_Tailstock_icon from '../ui/Lathes_Tailstock.svg';
+import Lathes_Turret_icon from '../ui/Lathes_Turret.svg';
+
 const specOptions = {
   "chuck" : [
     { id: 6, desc: "6” ( Nose A2-5 ) with Ø45mm" },
@@ -158,15 +164,26 @@ const Options4 = ({children}) => { return(
 
 const lathes = ({ ...props }) => (
   <LathesGrid>
-    <Dt gridArea="lathe"> <div> Lathes </div> </Dt>
-    <Dd gridArea="latheOption1"> <Options1>
-      Chuck Size and Nose Type </Options1> </Dd>
-   <Dd gridArea="latheOption2"> <Options2>
-      Type of Turret </Options2> </Dd>
-    <Dd gridArea="latheOption3"> <Options3>
-      Max. Diameter: then Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </Dd>
-    <Dd gridArea="latheOption4"> <Options4>
-      Tailstock, Type of Live Center on Tailstock  </Options4> </Dd>
+    <Dt gridArea="lathe">
+      <span> <img width="96px" height="96px" src={Lathes_icon}/> </span>
+      <span> Lathes </span>
+    </Dt>
+    <Dd gridArea="latheOption1">
+      <span> <img width="64px" height="64px" src={Lathes_Chuck_icon}/> </span>
+      <span> <Options1> Chuck Size and Nose Type </Options1> </span>
+    </Dd>
+    <Dd gridArea="latheOption2">
+      <span> <img width="64px" height="64px" src={Lathes_Turret_icon}/> </span>
+      <span> <Options2> Type of Turret </Options2> </span>
+    </Dd>
+    <Dd gridArea="latheOption3">
+      <span> <img width="64px" height="64px" src={Lathes_Max_Machine_Dimension_icon}/> </span>
+      <span> <Options3> Max. Diameter: then Workpiece Dimensions,  Model of Lathe, Max. Machining Dia. x Length (mm) </Options3> </span>
+    </Dd>
+    <Dd gridArea="latheOption4">
+      <span> <img width="64px" height="64px" src={Lathes_Tailstock_icon}/> </span>
+      <span> <Options4> Tailstock, Type of Live Center on Tailstock  </Options4> </span>
+    </Dd>
   </LathesGrid>
 );
 

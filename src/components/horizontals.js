@@ -3,6 +3,13 @@ import styled from 'styled-components'
 
 import { default as Dl, ProductDt as Dt, ProductDd as Dd } from './ProductDl';
 
+import Controller_icon from '../ui/Controller.svg';
+import Horizontals_Machining_Centers_icon from '../ui/Horizontals_Machining_Centers.svg';
+import Horizontals_Spindle_Speed_icon from '../ui/Horizontals_Spindle_Speed.svg';
+import Horizontals_Structure_icon from '../ui/Horizontals_Structure.svg';
+import Horizontals_Work_Area_icon from '../ui/Horizontals_Work_Area.svg';
+import Horizontals_Tool_Magazine_icon from '../ui/Horizontals_Tool_Magazine.svg';
+
 const specOptions = {
   "spindleSpeed" : [ 6000, 10000, 12000, 15000 ],
   "numOfTools" : [ 40, 60, 80, 120, 180, 240 ],
@@ -81,15 +88,33 @@ const Options4 = ({children}) => { return(
 
 const horizontals = ({ ...props }) => (
   <HorizontalsGrid>
-    <Dt gridArea="horizontal"> <div> Horizontals </div> </Dt>
-    <Dd gridArea="horizontalOption1"> <Options1>
-        Spindle, Spindle Speed: </Options1> </Dd>
-    <Dd gridArea="horizontalOption2"> <Options2>
-      Tool Magazine, Number of Tool Magazine: </Options2> </Dd>
-    <Dd gridArea="horizontalOption3"> <Options3>
-      Structure, Structure with bed casting: </Options3> </Dd>
-    <Dd gridArea="horizontalOption4"> <Options4>
-      Work Area, Table size, Max. Workpiece Dimensions, Working Table Size, With Max. Swing Diameter x Height ( D x H ) of Workpiece: </Options4> </Dd>
+    <Dt gridArea="horizontal">
+      <img width="64px" height="64px" src={Horizontals_Machining_Centers_icon}/>
+      <div> Horizontals </div>
+    </Dt>
+    <Dd gridArea="horizontalOption1">
+      <Options1>
+        <img width="32px" height="32px" src={Horizontals_Spindle_Speed_icon}/>
+        Spindle, Spindle Speed:
+      </Options1>
+    </Dd>
+    <Dd gridArea="horizontalOption2">
+      <Options2>
+        <img width="32px" height="32px" src={Horizontals_Structure_icon}/>
+        Tool Magazine, Number of Tool Magazine:
+     </Options2>
+     </Dd>
+    <Dd gridArea="horizontalOption3">
+      <Options3>
+        <img width="32px" height="32px" src={Horizontals_Structure_icon}/>
+        Structure, Structure with bed casting:
+      </Options3>
+    </Dd>
+    <Dd gridArea="horizontalOption4">
+      <Options4>
+        <img width="32px" height="32px" src={Horizontals_Work_Area_icon}/>
+        Work Area, Table size, Max. Workpiece Dimensions, Working Table Size, With Max. Swing Diameter x Height ( D x H ) of Workpiece:
+      </Options4> </Dd>
   </HorizontalsGrid>
 )
 

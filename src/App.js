@@ -10,6 +10,9 @@ import Lathes from './components/lathes'
 import Verticals from './components/verticals'
 import Horizontals from './components/horizontals'
 
+import yida_icon_set_FINAL_icon from './ui/yida_icon_set_FINAL.jpg';
+import Controller_icon from './ui/Controller.svg';
+
 const AppWrapper = styled.div`
   text-align: center;
 `
@@ -61,6 +64,10 @@ function App() {
         <Lathes />
         <Verticals />
         <Horizontals />
+        <div>
+          <img width="64px" height="64px" src={yida_icon_set_FINAL_icon}/>
+          <img width="32px" height="32px" src={Controller_icon}/>
+        </div>
       </main>
     </AppWrapper>
   );
