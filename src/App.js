@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 import logo from './logo.png';
@@ -54,6 +54,7 @@ const StarLink = ({ ...props }) => (
 );
 
 function App() {
+  const [productLine, setProductLine] = useState("lathes");
   return (
     <AppWrapper>
       <AppHeader>
@@ -61,9 +62,12 @@ function App() {
         <StarLink> => Links To A Reference </StarLink>
       </AppHeader>
       <main>
-        <Lathes />
-        <Verticals />
-        <Horizontals />
+        <button onClick={() => setProductLine("lathes")}> lathes </button>
+        <button onClick={() => setProductLine("verticals")}> verticals </button>
+        <button onClick={() => setProductLine("horizontals")}> horizontals </button>
+        <div> {productLine == "lathes" && <Lathes /> } </div>
+        <div> {productLine == "verticals" && <Verticals /> } </div>
+        <div> {productLine == "horizontals" && <Horizontals /> } </div>
         <div>
           <img width="64px" height="64px" src={yida_icon_set_FINAL_icon}/>
           <img width="32px" height="32px" src={Controller_icon}/>
