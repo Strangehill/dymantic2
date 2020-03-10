@@ -65,9 +65,13 @@ function App() {
         <button onClick={() => setProductLine("lathes")}> lathes </button>
         <button onClick={() => setProductLine("verticals")}> verticals </button>
         <button onClick={() => setProductLine("horizontals")}> horizontals </button>
-        <div> {productLine == "lathes" && <Lathes /> } </div>
-        <div> {productLine == "verticals" && <Verticals /> } </div>
-        <div> {productLine == "horizontals" && <Horizontals /> } </div>
+        {(() => {
+          switch (productLine) {
+            case 'lathes': return <Lathes />;
+            case 'verticals': return <Verticals />;
+            case 'horizontals': return <Horizontals />;
+            default: return null;
+        }})()}
         <div>
           <img width="64px" height="64px" src={yida_icon_set_FINAL_icon}/>
           <img width="32px" height="32px" src={Controller_icon}/>
